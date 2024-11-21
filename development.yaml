@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/name: dp020-app
+    app.kubernetes.io/instance: dp020-app-instance
+    app.kubernetes.io/version: '1.0.0'
+    app.kubernetes.io/managed-by: kubectl
+  name: cicd-demo-deployment
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app: dp020-app
+  template:
+    metadata:
+      labels:
+        app: dp020-app
+    spec:
+      containers:
+        - image: 325583868777.dkr.ecr.ca-central-1.amazonaws.com/dp020-repository:latest
+          imagePullPolicy: Always
+          name: dp020-app
+          ports:
+            - containerPort: 3000
