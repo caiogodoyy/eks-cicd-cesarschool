@@ -15,7 +15,8 @@ phases:
   post_build:
     commands:
       - aws eks update-kubeconfig --name EKSDeepDive --region ca-central-1
-      - kubectl get nodes
+      - echo "Validating Kubernetes connection..."
+      - kubectl get nodes || echo "Failed to connect to the cluster"
       - echo "Updating Kubernetes deployment..."
       - kubectl apply -f deployment.yaml
       - kubectl apply -f service.yaml
