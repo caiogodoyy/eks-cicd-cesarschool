@@ -14,6 +14,8 @@ phases:
       - docker push 325583868777.dkr.ecr.ca-central-1.amazonaws.com/dp020-repository:latest
   post_build:
     commands:
+      - aws eks update-kubeconfig --name EKSDeepDive --region ca-central-1
+      - kubectl get nodes
       - echo "Updating Kubernetes deployment..."
       - kubectl apply -f deployment.yaml
       - kubectl apply -f service.yaml
