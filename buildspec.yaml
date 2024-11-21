@@ -15,8 +15,6 @@ phases:
       - echo "Pushing the Docker image to ECR..."
       - docker push 325583868777.dkr.ecr.ca-central-1.amazonaws.com/dp020-repository:latest
       - echo "Updating Kubernetes deployment..."
-      - kubectl apply -f deployment.yaml
-      - kubectl rollout restart deployment/dp020-deployment
 
 artifacts:
   files:
