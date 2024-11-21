@@ -2,11 +2,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app.kubernetes.io/name: dp020-app
-    app.kubernetes.io/instance: dp020-app-instance
+    app.kubernetes.io/name: dp020
+    app.kubernetes.io/instance: dp020-instance
     app.kubernetes.io/version: '1.0.0'
     app.kubernetes.io/managed-by: kubectl
-  name: cicd-demo-deployment
+  name: dp020-deployment
 spec:
   replicas: 1
   selector:
